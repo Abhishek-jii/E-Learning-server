@@ -88,17 +88,17 @@ export const checkout = TryCatch(async (req, res) => {
     res.status(200).json({
       message: "Course Purchased Successfully",
     });
-  // const options = {
-  //   amount: Number(course.price * 100),
-  //   currency: "INR",
-  // };
+  const options = {
+    amount: Number(course.price * 100),
+    currency: "INR",
+  };
 
-  // const order = await instance.orders.create(options);
+  const order = await instance.orders.create(options);
 
-  // res.status(201).json({
-  //   order,
-  //   course,
-  // });
+  res.status(201).json({
+    order,
+    course,
+  });
 });
 
 export const paymentVerification = TryCatch(async (req, res) => {
