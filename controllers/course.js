@@ -75,19 +75,6 @@ export const checkout = TryCatch(async (req, res) => {
     });
   }
 
-  user.subscription.push(course._id);
-
-    await Progress.create({
-      course: course._id,
-      completedLectures: [],
-      user: req.user._id,
-    });
-
-    await user.save();
-
-    res.status(200).json({
-      message: "Course Purchased Successfully",
-    });
   const options = {
     amount: Number(course.price * 100),
     currency: "INR",
